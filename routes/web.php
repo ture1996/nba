@@ -37,7 +37,7 @@ Route::post('/login', [LoginController::class, 'store']);
 
 Route::get('/logout', [LoginController::class, 'destroy']);
 
-Route::post('/teams/{id}/comment', [CommentsController::class, 'store']);
+Route::post('/teams/{id}/comment', [CommentsController::class, 'store'])->middleware('no.bad.words');
 
 Route::get('/email/verify', function () {
     return view('auth.verify');
