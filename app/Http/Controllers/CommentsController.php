@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCommentRequest;
+use App\Mail\CommentReceived;
 use App\Models\Comment;
 use App\Models\Team;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class CommentsController extends Controller
@@ -22,7 +24,7 @@ class CommentsController extends Controller
         $team = Team::find($id);
         $team->addComment($request->content);
 
-
+        Mail::send(new CommentReceived($team));
 
         return redirect()->back();
 
