@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware(['auth', 'verified']);
+    }
+
     public function store(StoreCommentRequest $request, $id){
 
         $team = Team::find($id);
