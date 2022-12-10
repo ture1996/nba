@@ -4,12 +4,20 @@
 
 @section('content')
 
-<p>{{$news->title}}</p>
+<p>Title: {{$news->title}}</p>
 
-<p>{{$news->content}}</p>
+<p>Content: {{$news->content}}</p>
 
-<p>{{$news->user->name}}</p>
+<p>User name: {{$news->user->name}}</p>
 
-<p>{{$news->user->id}}</p>
+<p>User id: {{$news->user->id}}</p>
 
+<br>
+Teams:
+<br>
+<ul>
+@foreach ($news->teams as $team)
+    <li>{{$team->name}}</li>
+@endforeach
+</ul>
 @endsection

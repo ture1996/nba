@@ -58,4 +58,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 Route::get('/news', [NewsController::class, 'index']);
 
-Route::get('news/{id}', [NewsController::class, 'show'])->name('single-news');
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('single-news');
+
+Route::get('/news/team/{id}', [NewsController::class, 'filter']);
+
