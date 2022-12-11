@@ -9,6 +9,10 @@ class News extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title', 'content', 'team_id','user_id'
+    ];
+
     public function user(){
         return $this->belongsTo(User::find($this->user_id));
     }

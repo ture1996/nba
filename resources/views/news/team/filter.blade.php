@@ -4,12 +4,16 @@
 
 @section('content')
 
+<h1>News for {{$team->name}} team:</h1>
+<br>
 <ul>
-@foreach ($team->news as $news)
+@foreach ($news as $new)
 
-<li>{{$news->content}}</li>
+<li>{{$new->content}}</li>
 
 @endforeach
 </ul>
+
+{{ $news->onEachSide(5)->links() }}
 
 @endsection
