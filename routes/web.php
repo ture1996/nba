@@ -64,6 +64,6 @@ Route::post('/news/create', [NewsController::class, 'store']);
 
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('single-news');
 
-Route::get('/news/team/{name}', [NewsController::class, 'filter']);
+Route::get('/news/team/{name}', [NewsController::class, 'filter'])->name('filter-team');
 
 
